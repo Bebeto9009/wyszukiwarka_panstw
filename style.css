@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, rgb(0, 4, 40), rgb(0, 78, 146));
+  font-size: 16px;
+  font-family: -apple-system,  BlinkMacSystemFont,  "Segoe UI",  Roboto,  Oxygen-Sans,  Ubuntu,  Cantarell,  "Helvetica Neue",  sans-serif;
+}
+
+.search {
+  position: relative;
+  width: 90%;
+  max-width: 550px;
+  margin: 96px auto 24px;
+  height: 56px;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,.5);
+  transition: box-shadow 0.3s ease-in;
+}
+.search .search__section {
+  width: calc(100% - 57px);
+}
+.search input {
+  border: 0;
+  outline: 0;
+  padding: 0;
+  height: 56px;
+  width: calc(100% - 56px);
+  font-size: 18px;
+  margin: 0 56px;
+  cursor: pointer;
+}
+.search input::-webkit-input-placeholder {
+  color: #dadada;
+}
+.search input::-ms-input-placeholder {
+  color: #dadada;
+}
+.search input::-moz-placeholder {
+  color: #dadada;
+}
+.search .icon {
+  height: 24px;
+  width: 24px;
+}
+#search-icon {
+  width: 56px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#search-icon .icon {
+  margin: 16px;
+}
+
+.results {
+  position: relative;
+  width: 90%;
+  max-width: 550px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 4px;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,.5);
+}
+.results.active {
+  height: auto;
+  opacity: 1;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.84);
+  height: 60px;
+  padding-right: 16px;
+  padding-left: 55px;
+  cursor: pointer;
+  position: relative;
+}
+.result:hover {
+  background-color: #F5F5F5;
+}
+.result::after {
+  content: "";
+  width: calc(100% - 88px);
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
+  position: absolute;
+  bottom: 0;
+  right: 16px;
+}
+.result:last-of-type::after {
+  height: 0;
+}
+.result .result__details {
+  float: left;
+  font-size: 16px;
+}
+.result .result__details .result__subtitle {
+  display: block;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+}
