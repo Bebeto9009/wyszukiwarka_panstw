@@ -1,6 +1,5 @@
 const endpoint = 'https://raw.githubusercontent.com/ajotka/JSONs/master/countries.json';
 var obj = 0;
-var results = [];
 
 fetch(endpoint)
     .then(function (res) {
@@ -19,21 +18,34 @@ searchInput.addEventListener('keyup', (e) => {
     searchEngine();
 });
 
-function finalResults () {
+// function finalResults () {
+//
+// }
 
-}
+var results = [];
 
 function searchEngine() {
-    // console.log('searchEngine working! długość tablicy: ' + obj.length);
+    console.log('wartość searchInput: ' + searchInput.value);
 
-    console.log(results);
     for (var i = 0; i < obj.length; i++) {
-        if (searchInput === "") {
-            return results="";
-        } else if (obj[i].name.includes(searchInput.value)){
+
+        if (searchInput.value === '') {
+            results = [];
+            console.log('results from if: ' + results)
+        } else if (obj[i].name.includes(searchInput.value) && !results.includes(obj[i].name)) {
             // results += obj[i].name;
             results.push(obj[i].name);
-            return console.log('zwraca ' + results);
+            resultDetails.innerHTML += results;
+            return console.log('pierwszy else if zwraca: ' + results);
+        } else if (obj[i].name.includes(searchInput.value) && results.includes(obj[i].name)) {
+            for (var j = 0; j < results.length; j++) {
+                if (results.includes(searchInput.value)){
+                    results = [];
+                    resultDetails.innerHTML += results;
+                    console.log('drugi else if: ' + results);
+
+                }
+            }
         }
     }
 };
