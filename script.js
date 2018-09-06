@@ -28,9 +28,9 @@ function searchEngine() {
     console.log('wartość searchInput: ' + searchInput.value);
 
     for (var i = 0; i < obj.length; i++) {
-
-        if (searchInput.value === '') {
+        if (searchInput.value == '') {
             results = [];
+            resultDetails.innerHTML = '';
             console.log('results from if: ' + results)
         } else if (obj[i].name.includes(searchInput.value) && !results.includes(obj[i].name)) {
             // results += obj[i].name;
