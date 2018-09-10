@@ -40,9 +40,7 @@ function createRow(country) {
 function searchEngine() {
     for (let i = 0; i < countriesArr.length; i++) {
             if (countriesArr[i][0].toLowerCase().includes(searchInput.value.toLowerCase())) {
-                {
-                    createRow(countriesArr[i]);
-                }
+                createRow(countriesArr[i]);
             }
     }
 }
