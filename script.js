@@ -13,8 +13,6 @@ fetch(endpoint)
         countriesArr = obj.map(el => Object.values(el));
 });
 
-
-
 searchInput.addEventListener('keyup', (e) => {
     clearList();
     searchEngine();
