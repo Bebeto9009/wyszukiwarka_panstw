@@ -1,4 +1,6 @@
 const endpoint = 'https://raw.githubusercontent.com/ajotka/JSONs/master/countries.json';
+const searchInput = document.querySelector('.search-input');
+const currentResults = document.querySelector('.results.active');
 let obj = [];
 let countriesArr = [];
 
@@ -11,7 +13,7 @@ fetch(endpoint)
         countriesArr = obj.map(el => Object.values(el));
 });
 
-const searchInput = document.querySelector('.search-input');
+
 
 searchInput.addEventListener('keyup', (e) => {
     clearList();
@@ -31,7 +33,6 @@ function createRow(country) {
     resultSubtitle.classList.add('result__subtitle');
     resultSubtitle.innerHTML = country[1];
 
-    let currentResults = document.querySelector('.results.active');
     currentResults.appendChild(resultsItem);
     resultsItem.appendChild(resultDetails);
     resultDetails.appendChild(resultSubtitle);
@@ -46,7 +47,6 @@ function searchEngine() {
 }
 
 function clearList() {
-    let currentResults = document.querySelector('.results.active');
     currentResults.innerHTML='';
 }
 
