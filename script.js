@@ -6,12 +6,19 @@ let countriesArr = [];
 
 fetch(endpoint)
     .then(function (res) {
-        return  res.json();
-})
+        if (res.ok){
+            return res.json();
+        } else {
+            throw new Error ("Błąd połączenia");
+        }
+    })
     .then(function (data) {
         obj = data;
         countriesArr = obj.map(el => Object.values(el));
-});
+    })
+    .catch(function(error) {
+        console.log("Błąd: ", error);
+    });
 
 searchInput.addEventListener('keyup', (e) => {
     clearList();
